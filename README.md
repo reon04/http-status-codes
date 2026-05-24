@@ -1,19 +1,27 @@
 # http-status-codes
-[![Publish Docker image as latest](https://github.com/reon04/http-status-codes/actions/workflows/docker-publish.yml/badge.svg)](https://github.com/reon04/http-status-codes/actions/workflows/docker-publish.yml)
-
-A docker image that serves nginx-like status/error pages with the appropriate HTTP status code set in the response header. A summary of all named errors is served at the server root. The status pages are served at their three-digit path, e.g. the 404 Not Found page is served at /404. Unofficial or unnamed status codes are also supported, e.g. status code 999 is served at /999.
+[![Publish Release and Build Docker](https://github.com/reon04/http-status-codes/actions/workflows/release.yml/badge.svg)](https://github.com/reon04/http-status-codes/actions/workflows/release.yml)
 
 
-## Releases and Deployment
+### Example Deployment
 
-Get the latest release from [Docker Hub](https://hub.docker.com/r/reon04/http-status-codes).
+Deploy the container using docker compose:
+
+```
+services:
+  http-status-codes:
+    container_name: http-status-codes
+    image: "ghcr.io/reon04/http-status-codes:latest"
+    restart: unless-stopped
+    ports:
+      - "80:80"
+```
 
 
-### Envirionment Variables
+### Environment Variables
 
 No environement variables needed for running this container.
 
 
 ## LICENSE
 
-This repository is licensed under [AGPL-3.0](LICENSE).
+This project is licensed under [AGPL-3.0](LICENSE).
